@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,12 +147,24 @@ body{
             <span class="num" onclick="calc.txt.value+='0'"><i>0</i></span>
              <span class="num" onclick="calc.txt.value+='00'"><i>00</i></span>
             <span class="num" onclick="calc.txt.value+='.'"><i>.</i></span>
-            <span class="num equal" onclick="document.calc.txt.value=eval(calc.txt.value)"><i>=</i></span>
+   <span class="num" onclick="calc.txt.value+='%'"><i>%</i></span>          
+  <!-- <span class="num equal" onclick="document.calc.txt.value=eval(calc.txt.value)"><i>=</i></span> -->
+  <span class="num equal" onclick="document.calc.txt.value=equal(calc.txt.value)"><i>=</i></span>
 
             
 
         </form>
     </div>
+
+    <script>
+        function equal(text) {
+            if(text.search('%') !== -1) {
+                text = text.replace('%', '/100');
+            }
+            
+            return eval(text);
+        }
+    </script>
     
 </body>
 </html>
